@@ -27,7 +27,11 @@ class RegistrationForm():
         first_name = input("Enter your name: ")
         first_name_validation_status = validate_name(first_name)
 
-        if not first_name_validation_status:
+        # validate last name
+        last_name = input("Enter your last name: ")
+        last_name_validation_status = validate_name(last_name)
+
+        if not first_name_validation_status or not last_name_validation_status:
             self.validation()
             return
         else:

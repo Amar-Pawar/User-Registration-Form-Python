@@ -35,3 +35,22 @@ class TestCalc(unittest.TestCase):
         self.assertFalse(validate_name("Amar123"))
         self.assertFalse(validate_name("Am@1r"))
         self.assertFalse(validate_name("AMar"))
+    # test case for last name
+    def test_last_name_should_return_true(self):
+        """
+        Description:
+            Given valid name should return true and pass the test. 
+        """
+        self.assertTrue(validate_name("Pawar"))
+        self.assertTrue(validate_name("Zin"))
+    # negative test case for first name
+    def test_last_name_should_return_false(self):
+        """
+        Description:
+            Given invalid name should return false and pass the test. 
+        """
+        self.assertFalse(validate_name("pawar"))
+        self.assertFalse(validate_name("ab"))
+        self.assertFalse(validate_name("123sa"))
+        self.assertFalse(validate_name("Ia"))
+        self.assertFalse(validate_name("Pawar123"))
