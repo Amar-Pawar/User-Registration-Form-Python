@@ -29,3 +29,22 @@ def validate_name(name):
     except Exception as e:
         logger.info(f"Errorr!! {e}")
     return validation_status
+
+def email_validate(email):
+    """
+    Description:
+        This function will check the input by user for email id and complie and match by using
+        regular expression and see if pattern matches for validation. 
+    Parameters:
+        This function takes user input value for email as parameter to compile with regular expresion
+    Return:
+        It will return boolean value stored in variable
+    """
+    try:
+        pattern = re.compile("^[A-Z a-z]{1,}([+-_.]*)[A-Z a-z 0-9 _+-.]*[@]{1}[A-Z a-z 0-9 +_-]{1,}[.]{1}[a-z]{2,3}([.]{1}[a-z]{2})*$")
+        validation_status = re.match(pattern,email)
+        if not validation_status:
+            print("Enter proper email address")
+    except Exception as e:
+        logger.info(f"Errorr!! {e}")
+    return validation_status

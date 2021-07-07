@@ -11,7 +11,7 @@ import pytest
 import unittest
 import sys
 sys.path.insert(0, 'C:/Users/www.abcom.in/Documents/PythonWorkspace/FormRegistration')
-from Utility.regex_validation import (validate_name)
+from Utility.regex_validation import (validate_name, email_validate)
 
 # test case for first name
 def test_first_name_should_return_true():
@@ -55,4 +55,26 @@ def test_last_name_should_return_flase():
         assert validate_name("PAtil")
         assert validate_name("Mhatre@")
         assert validate_name("paWar")
+# test case for email
+def test_email_should_return_true():
+    """
+    Description:
+        Given valid email should return true and pass the test. 
+    """
+    assert email_validate("amar.ar92@ymail.com")
+    assert email_validate("amar.ar92@gmail.in")
+    assert email_validate("amar@co.uk")
+    assert email_validate("pawaramar.pawar@gmail.com")
+# negative test case for email
+def test_email_should_return_false():
+    """
+    Description:
+        Given invalid email should return false and pass the test. 
+    """
+    with pytest.raises(Exception) as exc_info:
+        assert email_validate("@mar.ar92@@ymail.com")
+        assert email_validate("1mar.ar92@ymail.com")
+        assert email_validate("amar.ar92@@ymail.com")
+        assert email_validate("am#ar.ar92@ymail.com")
+
 
