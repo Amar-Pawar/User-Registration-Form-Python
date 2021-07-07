@@ -67,3 +67,23 @@ def number_validation(number):
     except Exception as e:
         logger.info(f"Errorr!! {e}")
     return validation_status
+
+def password_validate(password):
+    """
+    Description:
+        This function will check the input by user for password and complie and match by using
+        regular expression and see if pattern matches for validation. 
+    Parameters:
+        This function takes user input value for password as parameter to compile with regular expresion
+    Return:
+        It will return boolean value stored in variable
+    """
+    try:
+        pattern = re.compile("^[A-Za-z0-9_@$]{8,}$")
+        validation_status = re.match(pattern,password)
+        if not validation_status:
+            print("Enter proper password")
+    except Exception as e:
+        logger.info(f"Errorr!! {e}")
+    return validation_status
+

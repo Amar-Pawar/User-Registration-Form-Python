@@ -10,7 +10,7 @@
 import unittest
 import sys
 sys.path.insert(0, 'C:/Users/www.abcom.in/Documents/PythonWorkspace/FormRegistration')
-from Utility.regex_validation import (number_validation, validate_name, email_validate)
+from Utility.regex_validation import (number_validation, validate_name, email_validate, password_validate)
 
 class TestCalc(unittest.TestCase):
     # test case for first name
@@ -92,3 +92,22 @@ class TestCalc(unittest.TestCase):
         self.assertFalse(number_validation("91909090987"))
         self.assertFalse(number_validation("01 7878786567"))
         self.assertFalse(number_validation("91 0909009876"))
+    # test case for email
+    def test_password_should_return_true(self):
+        """
+        Description:
+            Given valid password should return true and pass the test. 
+        """
+        self.assertTrue(password_validate("amarxyx@12"))
+        self.assertTrue(password_validate("@123xyzamar"))
+        self.assertTrue(password_validate("Amar@pawar123"))
+    # negative test case for email
+    def test_password_should_return_false(self):
+        """
+        Description:
+            Given invalid password should return false and pass the test. 
+        """
+        self.assertFalse(password_validate("@amar"))
+        self.assertFalse(password_validate("amar#gsjjd"))
+        self.assertFalse(password_validate("87789jh"))
+

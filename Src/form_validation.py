@@ -10,7 +10,7 @@
 import re
 import sys
 sys.path.insert(0, 'C:/Users/www.abcom.in/Documents/PythonWorkspace/FormRegistration')
-from Utility.regex_validation import (validate_name, email_validate, number_validation)
+from Utility.regex_validation import (validate_name, email_validate, number_validation, password_validate)
 from Utility.logging_handler import logger
 
 class RegistrationForm():
@@ -39,8 +39,12 @@ class RegistrationForm():
         mobile_number = input("Enter your contact number: ")
         number_validation_status = number_validation(mobile_number)
 
+        # validate password
+        password = input("Enter your password: ")
+        password_validation_status = password_validate(password)
+
         if (not first_name_validation_status or not last_name_validation_status or not email_validation_status 
-        or not number_validation_status):
+        or not number_validation_status or not password_validation_status):
             self.validation()
             return
         else:
