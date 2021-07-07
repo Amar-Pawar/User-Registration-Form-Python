@@ -48,3 +48,22 @@ def email_validate(email):
     except Exception as e:
         logger.info(f"Errorr!! {e}")
     return validation_status
+
+def number_validation(number):
+    """
+    Description:
+        This function will check the input by user for mobile number and complie and match by using
+        regular expression and see if pattern matches for validation. 
+    Parameters:
+        This function takes user input value for mobile number as parameter to compile with regular expresion
+    Return:
+        It will return boolean value stored in variable
+    """
+    try:
+        pattern = re.compile("^[1-9]{2}\\s{0,1}[1-9]{1}[0-9]{9}$")
+        validation_status = re.match(pattern,number)
+        if not validation_status:
+            print("Enter correct mobile number!! Example 91 9028626816")
+    except Exception as e:
+        logger.info(f"Errorr!! {e}")
+    return validation_status

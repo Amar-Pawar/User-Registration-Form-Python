@@ -11,7 +11,7 @@ import pytest
 import unittest
 import sys
 sys.path.insert(0, 'C:/Users/www.abcom.in/Documents/PythonWorkspace/FormRegistration')
-from Utility.regex_validation import (validate_name, email_validate)
+from Utility.regex_validation import (validate_name, email_validate, number_validation)
 
 # test case for first name
 def test_first_name_should_return_true():
@@ -76,5 +76,27 @@ def test_email_should_return_false():
         assert email_validate("1mar.ar92@ymail.com")
         assert email_validate("amar.ar92@@ymail.com")
         assert email_validate("am#ar.ar92@ymail.com")
+# test case for mobile number
+def test_number_should_return_true():
+    """
+    Description:
+        Given valid mobile number should return true and pass the test. 
+    """
+    assert number_validation("91 9028626816")
+    assert number_validation("83 8787878780")
+    assert number_validation("72 8989894543")
+    assert number_validation("24 1234345656")
+# negative test case for mobile number
+def test_number_should_return_false():
+    """
+    Description:
+        Given invalid mobile should return false and pass the test. 
+    """
+    with pytest.raises(Exception) as exc_info:
+        assert number_validation("909899098909")
+        assert number_validation("91 0909876789")
+        assert number_validation("01 9090987678")
+
+
 
 
