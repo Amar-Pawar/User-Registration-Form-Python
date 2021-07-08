@@ -41,6 +41,7 @@ class RegistrationForm():
 
         # validate password to have atleast one uppercase letter
         # password to have atleast one numeric
+        # password should have exactly one special character
         password = input("Enter your password: ")
         password_validation_status = password_validate(password)
 

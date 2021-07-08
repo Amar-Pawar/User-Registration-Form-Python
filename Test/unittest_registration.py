@@ -99,7 +99,7 @@ class TestCalc(unittest.TestCase):
             Given valid password should return true and pass the test. 
         """
         self.assertTrue(password_validate("amaArxyx@12"))
-        self.assertTrue(password_validate("@123xAyzamar"))
+        self.assertTrue(password_validate("123@xAyzamar"))
         self.assertTrue(password_validate("Amar@pawar123"))
         self.assertTrue(password_validate("Amar123@pawar"))
     # negative test case for password

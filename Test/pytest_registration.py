@@ -8,7 +8,6 @@
 /**********************************************************************************
 '''
 import pytest
-import unittest
 import sys
 sys.path.insert(0, 'C:/Users/www.abcom.in/Documents/PythonWorkspace/FormRegistration')
 from Utility.regex_validation import (validate_name, email_validate, number_validation, password_validate)
@@ -103,7 +102,7 @@ def test_password_should_return_true():
         Given valid password should return true and pass the test. 
     """
     assert password_validate("amaArxyx@12")
-    assert password_validate("@123xyAzamar")
+    assert password_validate("123x@yAzamar")
     assert password_validate("Amar@pawar123")
     assert password_validate("amaArxyx@1")
 # negative test case for password
