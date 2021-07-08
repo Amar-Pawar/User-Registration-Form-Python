@@ -64,6 +64,7 @@ class TestCalc(unittest.TestCase):
         self.assertTrue(email_validate("amar.ar92@gmail.in"))
         self.assertTrue(email_validate("amar@co.uk"))
         self.assertTrue(email_validate("pawaramar.pawar@gmail.com"))
+        self.assertTrue(email_validate("hr@outlook.in"))    
     # negative test case for email
     def test_email_should_return_false(self):
         """

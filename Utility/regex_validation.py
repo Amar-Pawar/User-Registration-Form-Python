@@ -21,7 +21,7 @@ def validate_name(name):
         It will return boolean value stored in variable
     """
     try:
-        # regex for username for first name
+        # regex for username for first name and last name
         pattern = re.compile("^[A-Z]{1}[a-z]{2,}$")
         validation_status = re.match(pattern,name)
         if not validation_status:
@@ -41,6 +41,7 @@ def email_validate(email):
         It will return boolean value stored in variable
     """
     try:
+        # regex for email
         pattern = re.compile("^[A-Z a-z]{1,}([+-_.]*)[A-Z a-z 0-9 _+-.]*[@]{1}[A-Z a-z 0-9 +_-]{1,}[.]{1}[a-z]{2,3}([.]{1}[a-z]{2})*$")
         validation_status = re.match(pattern,email)
         if not validation_status:
@@ -60,6 +61,7 @@ def number_validation(number):
         It will return boolean value stored in variable
     """
     try:
+        # regex for contact number
         pattern = re.compile("^[1-9]{2}\\s{0,1}[1-9]{1}[0-9]{9}$")
         validation_status = re.match(pattern,number)
         if not validation_status:
@@ -79,6 +81,7 @@ def password_validate(password):
         It will return boolean value stored in variable
     """
     try:
+        # regex for password
         pattern = re.compile("(?=.*[A-Z])(?=.*[0-9])(?=.*[@_$%&])([A-Z0-9a-z]).{8,20}$")
         validation_status = re.match(pattern,password)
         if not validation_status:

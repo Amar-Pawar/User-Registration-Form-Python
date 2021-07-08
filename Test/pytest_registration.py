@@ -64,6 +64,8 @@ def test_email_should_return_true():
     assert email_validate("amar.ar92@gmail.in")
     assert email_validate("amar@co.uk")
     assert email_validate("pawaramar.pawar@gmail.com")
+    assert email_validate("amar@co.uk")
+    assert email_validate("hr@outlook.in")
 # negative test case for email
 def test_email_should_return_false():
     """
