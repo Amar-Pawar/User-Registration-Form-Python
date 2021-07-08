@@ -40,6 +40,7 @@ class RegistrationForm():
         number_validation_status = number_validation(mobile_number)
 
         # validate password to have atleast one uppercase letter
+        # password to have atleast one numeric
         password = input("Enter your password: ")
         password_validation_status = password_validate(password)
 

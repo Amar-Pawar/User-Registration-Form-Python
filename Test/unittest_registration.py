@@ -92,7 +92,7 @@ class TestCalc(unittest.TestCase):
         self.assertFalse(number_validation("91909090987"))
         self.assertFalse(number_validation("01 7878786567"))
         self.assertFalse(number_validation("91 0909009876"))
-    # test case for email
+    # test case for password
     def test_password_should_return_true(self):
         """
         Description:
@@ -101,7 +101,8 @@ class TestCalc(unittest.TestCase):
         self.assertTrue(password_validate("amaArxyx@12"))
         self.assertTrue(password_validate("@123xAyzamar"))
         self.assertTrue(password_validate("Amar@pawar123"))
-    # negative test case for email
+        self.assertTrue(password_validate("Amar123@pawar"))
+    # negative test case for password
     def test_password_should_return_false(self):
         """
         Description:
@@ -110,4 +111,6 @@ class TestCalc(unittest.TestCase):
         self.assertFalse(password_validate("@amarfg"))
         self.assertFalse(password_validate("amar#gsjjd"))
         self.assertFalse(password_validate("87789jhsgg"))
+        self.assertFalse(password_validate("Amar@jhsgg"))
+
 
