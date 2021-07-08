@@ -3,7 +3,7 @@
 @Author: Amar Pawar
 @Date: 2021-07-07
 @Last Modified by: Amar Pawar
-@Last Modified time: 2021-07-07
+@Last Modified time: 2021-07-08
 @Title : User Registration System Validation by Regular Expressions
 /**********************************************************************************
 '''
@@ -79,7 +79,7 @@ def password_validate(password):
         It will return boolean value stored in variable
     """
     try:
-        pattern = re.compile("^[A-Za-z0-9_@$]{8,}$")
+        pattern = re.compile("(?=.*[A-Z])([A-Za-z0-9_@$])+$")
         validation_status = re.match(pattern,password)
         if not validation_status:
             print("Enter proper password")

@@ -3,7 +3,7 @@
 @Author: Amar Pawar
 @Date: 2021-07-07
 @Last Modified by: Amar Pawar
-@Last Modified time: 2021-07-07
+@Last Modified time: 2021-07-08
 @Title : Test cases for user registration system using unittest
 /**********************************************************************************
 '''
@@ -98,8 +98,8 @@ class TestCalc(unittest.TestCase):
         Description:
             Given valid password should return true and pass the test. 
         """
-        self.assertTrue(password_validate("amarxyx@12"))
-        self.assertTrue(password_validate("@123xyzamar"))
+        self.assertTrue(password_validate("amaArxyx@12"))
+        self.assertTrue(password_validate("@123xAyzamar"))
         self.assertTrue(password_validate("Amar@pawar123"))
     # negative test case for email
     def test_password_should_return_false(self):
@@ -107,7 +107,7 @@ class TestCalc(unittest.TestCase):
         Description:
             Given invalid password should return false and pass the test. 
         """
-        self.assertFalse(password_validate("@amar"))
+        self.assertFalse(password_validate("@amarfg"))
         self.assertFalse(password_validate("amar#gsjjd"))
-        self.assertFalse(password_validate("87789jh"))
+        self.assertFalse(password_validate("87789jhsgg"))
 

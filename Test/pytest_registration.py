@@ -3,7 +3,7 @@
 @Author: Amar Pawar
 @Date: 2021-07-07
 @Last Modified by: Amar Pawar
-@Last Modified time: 2021-07-07
+@Last Modified time: 2021-07-08
 @Title : Test cases for user registration system using pytest
 /**********************************************************************************
 '''
@@ -102,8 +102,8 @@ def test_password_should_return_true():
     Description:
         Given valid password should return true and pass the test. 
     """
-    assert password_validate("amarxyx@12")
-    assert password_validate("@123xyzamar")
+    assert password_validate("amaArxyx@12")
+    assert password_validate("@123xyAzamar")
     assert password_validate("Amar@pawar123")
 # negative test case for password
 def test_password_should_return_false():
@@ -113,7 +113,7 @@ def test_password_should_return_false():
     """
     with pytest.raises(Exception) as exc_info:
         assert password_validate("@amar")
-        assert password_validate("12345h")
+        assert password_validate("12@adas345h")
         assert password_validate("@assdfdgb#")
 
 
