@@ -136,12 +136,20 @@ def test_password_should_return_false():
 
 # test case for valid name by reading json file
 def test_multiple_names_should_return_true():
+    """
+    Description:
+        Given valid name samples from json file should return false and pass the test. 
+    """
     sample_name_list = read_json()
     for name in sample_name_list['valid_name']:
         assert validate_name(name)
 
 # test case for invalid name by reading json file
 def test_multiple_names_should_return_false():
+    """
+    Description:
+        Given invalid name samples from json file should return false and pass the test.
+    """
     sample_name_list = read_json()
     with pytest.raises(Exception) as exc_info:
         for name in sample_name_list['invalid_name']:
@@ -149,12 +157,20 @@ def test_multiple_names_should_return_false():
 
 # test case for valid email by reading json file
 def test_multiple_emails_should_return_true():
+    """
+    Description:
+        Given valid email samples from json file should return true and pass the test. 
+    """
     sample_email_list = read_json()
     for email in sample_email_list['valid_email']:
         assert email_validate(email)
 
 # test case for invalid email by reading json file
 def test_multiple_emails_should_return_false():
+    """
+    Description:
+            Given invalid email samples from json file should return false and pass the test. 
+    """
     sample_email_list = read_json()
     with pytest.raises(Exception) as exc_info:
         for email in sample_email_list['invalid_email']:

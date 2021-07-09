@@ -143,7 +143,7 @@ class TestCalc(unittest.TestCase):
             self.assertFalse(validate_name(name))
 
     # test case for valid email by reading json file
-    def test_first_name_by_reading_json_should_return_true(self):
+    def test_email_by_reading_json_should_return_true(self):
         """
         Description:
             Given valid email samples from json file should return true and pass the test. 
@@ -151,7 +151,7 @@ class TestCalc(unittest.TestCase):
         for email in self.valid_email_list:
             self.assertTrue(email_validate(email))
     # test case for invalid email by reading json file
-    def test_first_name_by_reading_json_should_return_false(self):
+    def test_email_by_reading_json_should_return_false(self):
         """
         Description:
              Given invalid email samples from json file should return false and pass the test. 
