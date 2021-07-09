@@ -3,16 +3,26 @@
 @Author: Amar Pawar
 @Date: 2021-07-07
 @Last Modified by: Amar Pawar
-@Last Modified time: 2021-07-08
+@Last Modified time: 2021-07-09
 @Title : Test cases for user registration system using unittest
 /**********************************************************************************
 '''
-import unittest
 import sys
 sys.path.insert(0, 'C:/Users/www.abcom.in/Documents/PythonWorkspace/FormRegistration')
+import json
+import unittest
+from Utility.logging_handler import logger
 from Utility.regex_validation import (number_validation, validate_name, email_validate, password_validate)
 
 class TestCalc(unittest.TestCase):
+    def setUp(self):
+        self.f = open('samples_for_test.json', 'r')
+        self.data = json.load(self.f)
+        self.valid_name_list = self.data['valid_name']
+        self.invalid_name_list = self.data['invalid_name']
+        self.valid_email_list = self.data['valid_email']
+        self.invalid_email_list = self.data['invalid_email']
+        self.f.close()
     # test case for first name
     def test_first_name_should_return_true(self):
         """
@@ -20,8 +30,8 @@ class TestCalc(unittest.TestCase):
             This method will test if input first is valid or not
             Given name should return true and pass the test. 
         """
-        self.assertTrue(validate_name("Amar"))
         self.assertTrue(validate_name("Isa"))
+        self.assertTrue(validate_name("Amar"))
     # negative test case for first name
     def test_first_name_should_return_false(self):
         """
@@ -113,5 +123,40 @@ class TestCalc(unittest.TestCase):
         self.assertFalse(password_validate("amar#gsjjd"))
         self.assertFalse(password_validate("87789jhsgg"))
         self.assertFalse(password_validate("Amar@jhsgg"))
+
+    # test case for valid first name by reading json file
+    def test_first_name_by_reading_json_should_return_true(self):
+        """
+        Description:
+            Given valid name samples from json file should return false and pass the test. 
+        """
+        for name in self.valid_name_list:
+            self.assertTrue(validate_name(name))
+
+    # test case for invalid name by reading json file
+    def test_first_name_by_reading_json_should_return_false(self):
+        """
+        Description:
+            Given invalid name samples from json file should return false and pass the test.
+        """
+        for name in self.invalid_name_list:
+            self.assertFalse(validate_name(name))
+
+    # test case for valid email by reading json file
+    def test_first_name_by_reading_json_should_return_true(self):
+        """
+        Description:
+            Given valid email samples from json file should return true and pass the test. 
+        """
+        for email in self.valid_email_list:
+            self.assertTrue(email_validate(email))
+    # test case for invalid email by reading json file
+    def test_first_name_by_reading_json_should_return_false(self):
+        """
+        Description:
+             Given invalid email samples from json file should return false and pass the test. 
+        """
+        for email in self.invalid_email_list:
+            self.assertFalse(email_validate(email))
 
 

@@ -3,7 +3,7 @@
 @Author: Amar Pawar
 @Date: 2021-07-07
 @Last Modified by: Amar Pawar
-@Last Modified time: 2021-07-08
+@Last Modified time: 2021-07-09
 @Title : User Registration System Validation by Regular Expressions
 /**********************************************************************************
 '''
@@ -22,10 +22,10 @@ def validate_name(name):
     """
     try:
         # regex for username for first name and last name
-        pattern = re.compile("^[A-Z]{1}[a-z]{2,}$")
-        validation_status = re.match(pattern,name)
+        name_pattern = re.compile("^[A-Z]{1}[a-z]{2,}$")
+        validation_status = re.match(name_pattern,name)
         if not validation_status:
-            print("Name should contain only letters and min 3 characters and first letter should be capital Example: Amar")
+            logger.info("Name should contain only letters and min 3 characters and first letter should be capital Example: Amar")
     except Exception as e:
         logger.info(f"Errorr!! {e}")
     return validation_status
@@ -42,10 +42,10 @@ def email_validate(email):
     """
     try:
         # regex for email
-        pattern = re.compile("^[A-Z a-z]{1,}([+-_.]*)[A-Z a-z 0-9 _+-.]*[@]{1}[A-Z a-z 0-9 +_-]{1,}[.]{1}[a-z]{2,3}([.]{1}[a-z]{2})*$")
-        validation_status = re.match(pattern,email)
+        email_pattern = re.compile("^[A-Z a-z]{1,}([+-_.]*)[A-Z a-z 0-9 _+-.]*[@]{1}[A-Z a-z 0-9 +_-]{1,}[.]{1}[a-z]{2,3}([.]{1}[a-z]{2})*$")
+        validation_status = re.match(email_pattern,email)
         if not validation_status:
-            print("Enter proper email address")
+            logger.info("Enter proper email address")
     except Exception as e:
         logger.info(f"Errorr!! {e}")
     return validation_status
@@ -62,10 +62,10 @@ def number_validation(number):
     """
     try:
         # regex for contact number
-        pattern = re.compile("^[1-9]{2}\\s{0,1}[1-9]{1}[0-9]{9}$")
-        validation_status = re.match(pattern,number)
+        number_pattern = re.compile("^[1-9]{2}\\s{0,1}[1-9]{1}[0-9]{9}$")
+        validation_status = re.match(number_pattern,number)
         if not validation_status:
-            print("Enter correct mobile number!! Example 91 9028626816")
+            logger.info("Enter correct mobile number!! Example 91 9028626816")
     except Exception as e:
         logger.info(f"Errorr!! {e}")
     return validation_status
@@ -82,11 +82,10 @@ def password_validate(password):
     """
     try:
         # regex for password
-        pattern = re.compile("(?=.*[A-Z])(?=.*[0-9])(?=.*[@_$%&])([A-Z0-9a-z]).{8,20}$")
-        validation_status = re.match(pattern,password)
+        password_pattern = re.compile("(?=.*[A-Z])(?=.*[0-9])(?=.*[@_$%&])([A-Z0-9a-z]).{8,20}$")
+        validation_status = re.match(password_pattern,password)
         if not validation_status:
-            print("Enter proper password")
+            logger.info("Enter proper password")
     except Exception as e:
         logger.info(f"Errorr!! {e}")
     return validation_status
-

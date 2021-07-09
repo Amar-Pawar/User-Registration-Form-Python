@@ -1,0 +1,8 @@
+{
+    "valid_name":  ["Amar", "Sagar", "Mayur"],
+    "invalid_name": ["amar", "1ama", "am"],
+    "valid_email": ["amar@gmail.com","amar.ar92@ymail.com","hr@outlook.in"],
+    "invalid_email": ["1mar.ar92@ymail.com","amar.ar92@@ymail.com","am#ar.ar92@ymail.com"]
+    
+}
+

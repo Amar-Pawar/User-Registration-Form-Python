@@ -48,7 +48,7 @@ class RegistrationForm():
 
             if (not first_name_validation_status or not last_name_validation_status or not email_validation_status 
             or not number_validation_status or not password_validation_status):
-                print("Please enter proper Credentials..")
+                logger.info("Please enter proper Credentials..")
                 self.validation()
                 return
             else:

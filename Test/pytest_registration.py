@@ -3,14 +3,28 @@
 @Author: Amar Pawar
 @Date: 2021-07-07
 @Last Modified by: Amar Pawar
-@Last Modified time: 2021-07-08
+@Last Modified time: 2021-07-09
 @Title : Test cases for user registration system using pytest
 /**********************************************************************************
 '''
 import pytest
 import sys
+import json
 sys.path.insert(0, 'C:/Users/www.abcom.in/Documents/PythonWorkspace/FormRegistration')
 from Utility.regex_validation import (validate_name, email_validate, number_validation, password_validate)
+
+pytest.fixture
+def read_json():
+    """
+    Description:
+        This method will read json file and return list of name for validating.
+    Return:
+        It will return list of name for validating
+    """
+    f = open('samples_for_test.json',)
+    data = json.load(f)
+    return data
+
 
 # test case for first name
 def test_first_name_should_return_true():
@@ -21,7 +35,7 @@ def test_first_name_should_return_true():
     assert validate_name("Amar")
     assert validate_name("Isc")
 # negative test case for first name
-def test_first_name_should_return_flase():
+def test_first_name_should_return_false():
     """
     Description:
         Given invalid name should return false and pass the test. 
@@ -119,6 +133,33 @@ def test_password_should_return_false():
         assert password_validate("@assdfdgb#")
         assert password_validate("@assdf1dgb#")
         assert password_validate("@aAssdfdgb")
+
+# test case for valid name by reading json file
+def test_multiple_names_should_return_true():
+    sample_name_list = read_json()
+    for name in sample_name_list['valid_name']:
+        assert validate_name(name)
+
+# test case for invalid name by reading json file
+def test_multiple_names_should_return_false():
+    sample_name_list = read_json()
+    with pytest.raises(Exception) as exc_info:
+        for name in sample_name_list['invalid_name']:
+            assert validate_name(name)
+
+# test case for valid email by reading json file
+def test_multiple_emails_should_return_true():
+    sample_email_list = read_json()
+    for email in sample_email_list['valid_email']:
+        assert email_validate(email)
+
+# test case for invalid email by reading json file
+def test_multiple_emails_should_return_false():
+    sample_email_list = read_json()
+    with pytest.raises(Exception) as exc_info:
+        for email in sample_email_list['invalid_email']:
+            assert email_validate(email)
+
 
 
 
