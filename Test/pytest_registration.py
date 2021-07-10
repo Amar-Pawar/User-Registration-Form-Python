@@ -176,6 +176,49 @@ def test_multiple_emails_should_return_false():
         for email in sample_email_list['invalid_email']:
             assert email_validate(email)
 
+# test case for valid password by reading json file
+def test_multiple_passwords_should_return_true():
+    """
+    Description:
+        Given valid password samples from json file should return true and pass the test. 
+    """
+    sample_password_list = read_json()
+    for password in sample_password_list['valid_password']:
+        assert password_validate(password)
+
+# test case for invalid password by reading json file
+def test_multiple_password_should_return_false():
+    """
+    Description:
+            Given invalid password samples from json file should return false and pass the test. 
+    """
+    sample_password_list = read_json()
+    with pytest.raises(Exception) as exc_info:
+        for password in sample_password_list['invalid_password']:
+            assert password_validate(password)
+
+# test case for valid number by reading json file
+def test_multiple_number_should_return_true():
+    """
+    Description:
+        Given valid password samples from json file should return true and pass the test. 
+    """
+    sample_number_list = read_json()
+    for number in sample_number_list['valid_number']:
+        assert number_validation(number)
+
+# test case for invalid numbers by reading json file
+def test_multiple_numbers_should_return_false():
+    """
+    Description:
+            Given invalid number samples from json file should return false and pass the test. 
+    """
+    sample_number_list = read_json()
+    with pytest.raises(Exception) as exc_info:
+        for number in sample_number_list['invalid_number']:
+            assert number_validation(number)
+
+
 
 
 

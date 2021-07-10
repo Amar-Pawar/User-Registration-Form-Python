@@ -22,6 +22,10 @@ class TestCalc(unittest.TestCase):
         self.invalid_name_list = self.data['invalid_name']
         self.valid_email_list = self.data['valid_email']
         self.invalid_email_list = self.data['invalid_email']
+        self.valid_number_list = self.data['valid_number']
+        self.invalid_number_list = self.data['invalid_number']
+        self.valid_password_list = self.data['valid_password']
+        self.invalid_password_list = self.data['invalid_password']
         self.f.close()
     # test case for first name
     def test_first_name_should_return_true(self):
@@ -158,5 +162,41 @@ class TestCalc(unittest.TestCase):
         """
         for email in self.invalid_email_list:
             self.assertFalse(email_validate(email))
+
+    # test case for valid numbers by reading json file
+    def test_numbers_by_reading_json_should_return_true(self):
+        """
+        Description:
+            Given valid number samples from json file should return true and pass the test. 
+        """
+        for number in self.valid_number_list:
+            self.assertTrue(number_validation(number))
+    # test case for invalid numbers by reading json file
+    def test_numbers_by_reading_json_should_return_false(self):
+        """
+        Description:
+             Given invalid number samples from json file should return false and pass the test. 
+        """
+        for number in self.invalid_number_list:
+            self.assertFalse(number_validation(number))
+
+    # test case for valid passwords by reading json file
+    def test_passwords_by_reading_json_should_return_true(self):
+        """
+        Description:
+            Given valid password samples from json file should return true and pass the test. 
+        """
+        for password in self.valid_password_list:
+            self.assertTrue(password_validate(password))
+    # test case for invalid password by reading json file
+    def test_passwords_by_reading_json_should_return_false(self):
+        """
+        Description:
+             Given invalid password samples from json file should return false and pass the test. 
+        """
+        for password in self.invalid_password_list:
+            self.assertFalse(password_validate(password))
+
+
 
 

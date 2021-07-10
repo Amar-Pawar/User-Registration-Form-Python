@@ -2,7 +2,11 @@
     "valid_name":  ["Amar", "Sagar", "Mayur"],
     "invalid_name": ["amar", "1ama", "am"],
     "valid_email": ["amar@gmail.com","amar.ar92@ymail.com","hr@outlook.in"],
-    "invalid_email": ["1mar.ar92@ymail.com","amar.ar92@@ymail.com","am#ar.ar92@ymail.com"]
+    "invalid_email": ["1mar.ar92@ymail.com","amar.ar92@@ymail.com","am#ar.ar92@ymail.com"],
+    "valid_number": ["91 9028626816","11 9087655678"],
+    "invalid_number":["01 9090909090","9878787878","91 0909090909"],
+    "valid_password":["amaArxyx@12", "123x@yAzamar", "Amar@pawar123", "amaArxyx@1"],
+    "invalid_password":["@amar", "@assdf1dgb#", "@aAssdfdgb"]
     
 }
 
