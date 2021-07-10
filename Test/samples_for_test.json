@@ -1,6 +1,8 @@
 {
     "valid_name":  ["Amar", "Sagar", "Mayur"],
-    "invalid_name": ["amar", "1ama", "am"],
+    "invalid_name": ["amar", "1ama", "am","AMar"],
+    "valid_last_name":  ["Pawar", "Patil", "More"],
+    "invalid_last_name": ["mhAtre", "1ama", "pawar"],
     "valid_email": ["amar@gmail.com","amar.ar92@ymail.com","hr@outlook.in"],
     "invalid_email": ["1mar.ar92@ymail.com","amar.ar92@@ymail.com","am#ar.ar92@ymail.com"],
     "valid_number": ["91 9028626816","11 9087655678"],
